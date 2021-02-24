@@ -67,8 +67,9 @@ class MusicLibraryController
         songs_sorted_by_genre = Genre.all.sort_by do |genre|
             genre.name
           end
+        binding.pry
           songs_sorted_by_genre.each.with_index(1) do |genre,index|
-            # binding.pry
+            
             puts "#{index}. #{genre.name}"
           end
         end
