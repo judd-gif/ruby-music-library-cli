@@ -41,7 +41,7 @@ class MusicLibraryController
       end
 
     
-      def list_songs
+    def list_songs
 
         @all_songs = Song.all
         songs_sorted_by_name = @all_songs.sort_by do |song|
@@ -51,10 +51,29 @@ class MusicLibraryController
 
             #  binding pry
               puts "#{index}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
-            end    
-           
+            end
+    end
 
-      end
+    def list_artists
+        songs_sorted_by_artist = Artist.all.sort_by do |artist| #returns an array of artists sorted by artist name
+            artist.name
+          end
+          songs_sorted_by_artist.each.with_index(1) do |artist,index|
+            puts "#{index}. #{artist.name}"
+          end
+        end
+
+    def list_genres
+        songs_sorted_by_genre = Genre.all.sort_by do |genre|
+            genre.name
+          end
+          songs_sorted_by_genre.each.with_index(1) do |genre,index|
+            # binding.pry
+            puts "#{index}. #{genre.name}"
+          end
+        end
+
+    
     
 
 
