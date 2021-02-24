@@ -11,7 +11,6 @@ class Song
       @name = name
       self.artist = (artist) if artist != nil
       self.genre = (genre) if genre != nil 
-      save
     end
   
     def self.all
@@ -66,7 +65,7 @@ class Song
         song
       end
 
-      
+
       def self.create_from_filename(name)
         @@all << self.new_from_filename(name)
     
