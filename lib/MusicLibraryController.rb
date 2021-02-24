@@ -1,4 +1,7 @@
+require 'pry'
+
 class MusicLibraryController
+
 
     def initialize(path = "./db/mp3s")
         new_importer_object = MusicImporter.new(path)
@@ -45,8 +48,12 @@ class MusicLibraryController
           song.name
         end
         songs_sorted_by_name.each.with_index(1) do |song,index|
-              puts "#{index}. #{song.artist} - #{song.name} - #{song.genre}"
-            end
+
+            #  binding pry
+              puts "#{index}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+            end    
+           
+
       end
     
 
