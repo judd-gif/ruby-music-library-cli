@@ -33,9 +33,16 @@ class Genre
    
     end 
 
-    def self.find_by_name(name)
-        @@all.detect{|genre| genre.name == name}
-    end
+
+  def add_song(song)
+    song.genre = self unless song.genre == self
+    @songs << song unless @songs.include?(song)
+  end
+
+
+    # def self.find_by_name(name)
+    #     @@all.detect{|genre| genre.name == name}
+    # end
 
     def artists
         self.songs.collect {|s| s.artist}.uniq
